@@ -1,24 +1,60 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Flyout from '../components/Flyout';
-import Counter from '../components/Counter';
-import AnimatedCard from '../components/AnimatedCard';
-import AnimatedFeatures from '../components/AnimatedFeatures';
-import AnimatedModalFeatures from '../components/AnimatedModalFeatures';
-import SpringAnimation from '../components/SpringAnimation';
-import Welcome from '../components/Welcome';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Introduction from '../components/Introduction';
+import Flyout from "../components/Flyout";
+import Counter from "../components/Counter";
+import AnimatedCard from "../components/AnimatedCard";
+import AnimatedFeatures from "../components/AnimatedFeatures";
+import AnimatedModalFeatures from "../components/AnimatedModalFeatures";
+import SpringAnimation from "../components/SpringAnimation";
+import Welcome from "../components/Welcome";
 ---
 
 <Layout>
-	<Flyout client:load/>
-	
-	<SpringAnimation client:load />
-	<Welcome text='Welcome to my portfolio! I am a full-stack developer.' className='white' client:load onLetterAnimationComplete={() => {}}/>
-	<Counter client:load/>	
-	<AnimatedCard client:load />
-	<AnimatedFeatures client:load/>
-	<AnimatedModalFeatures client:load/>
+  <main class="min-h-screen bg-gray-100">
+	<Introduction client:load />
+    {/* Header section */}
+    <Welcome
+      text="Welcome to my portfolio! I am a full-stack developer."
+      className="white"
+      client:load
+      onLetterAnimationComplete={() => {}}
+    />
+
+    {/* Navigation */}
+    <Flyout client:load />
+
+    {/* Basic Animations Demo */}
+    <section class="container mx-auto py-16">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        Basic Animation Examples
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <Counter client:load />
+        <SpringAnimation client:load />
+      </div>
+    </section>
+
+    {/* Advanced Animations */}
+    <section class="bg-white py-16">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Advanced Animations
+        </h2>
+        <AnimatedCard client:load />
+      </div>
+    </section>
+
+    {/* Interactive Features */}
+    <section class="py-16">
+      <AnimatedFeatures client:load />
+    </section>
+
+    {/* Modal Demo */}
+    <section class="container mx-auto py-16">
+      <h2 class="text-3xl font-bold text-center mb-12">Modal Animations</h2>
+      <AnimatedModalFeatures client:load />
+    </section>
+  </main>
 </Layout>
