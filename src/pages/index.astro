@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Flyout from '../components/Flyout';
+import Counter from '../components/Counter';
+import AnimatedCard from '../components/AnimatedCard';
+import AnimatedFeatures from '../components/AnimatedFeatures';
+import AnimatedModalFeatures from '../components/AnimatedModalFeatures';
+import SpringAnimation from '../components/SpringAnimation';
+import Welcome from '../components/Welcome';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+	<Flyout client:load/>
+	
+	<SpringAnimation client:load />
+	<Welcome text='Welcome to my portfolio! I am a full-stack developer.' className='white' client:load onLetterAnimationComplete={() => {}}/>
+	<Counter client:load/>	
+	<AnimatedCard client:load />
+	<AnimatedFeatures client:load/>
+	<AnimatedModalFeatures client:load/>
+</Layout>
